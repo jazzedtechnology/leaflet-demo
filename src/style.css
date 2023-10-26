@@ -1,0 +1,7 @@
+.bg-gray{
+  background-color: rgb(246, 246, 246);
+}
+/* leaflet sizing */
+.leaflet-container{
+  height: 100%;
+}

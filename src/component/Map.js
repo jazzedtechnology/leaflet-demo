@@ -1,31 +1,24 @@
-import React, { useEffect, useRef } from 'react';
-import L from 'leaflet';
-import 'leaflet/dist/leaflet.css';
+import React from "react";
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import EditFeature from "./EditFeature"; // Import the EditFeature component
 
-const Map = () => {
-  const mapRef = useRef(null);
+export default function Map() {
+  const position = [49.11941257871176, -122.83461402566606];
 
-  useEffect(() => {
-    if (mapRef.current) {
-      // Create the map with the ref's DOM node
-      const map = L.map(mapRef.current, {
-        center: [51.505, -0.09], // Coordinates for London
-        zoom: 13,
-        layers: [
-          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          }),
-        ],
-      });
+  return (
+    <MapContainer center={position} zoom={13} scrollWheelZoom={false}>
+      <TileLayer
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      />
+      <Marker position={position}>
+        <Popup>
+          A pretty CSS3 popup. <br /> Easily customizable. This is a fixed Marker on Map load
+        </Popup>
+      </Marker>
 
-      // Add a marker to the map
-      L.marker([51.5, -0.09]).addTo(map)
-        .bindPopup('A pretty CSS3 popup.<br> Easily customizable.')
-        .openPopup();
-    }
-  }, []);
-
-  return <div id="map" ref={mapRef} style={{ height: "100vh", width: "100%" }} />;
-};
-
-export default Map;
+      {/* Add the EditFeature component to enable drawing and editing */}
+      <EditFeature />
+    </MapContainer>
+  );
+}
