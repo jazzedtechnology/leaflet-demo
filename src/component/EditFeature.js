@@ -1,12 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import L from "leaflet";
 import {
-  Map,
-  TileLayer,
-  Marker,
-  Popup,
-  FeatureGroup,
-  Circle
+  FeatureGroup
 } from "react-leaflet";
 import { EditControl } from "react-leaflet-draw";
 
@@ -54,25 +49,25 @@ const EditFeature = () => {
     // this._onChange();
   };
 
-  const _onMounted = drawControl => {
-    console.log("_onMounted", drawControl);
-  };
+  // const _onMounted = drawControl => {
+  //   console.log("_onMounted", drawControl);
+  // };
 
-  const _onEditStart = e => {
-    console.log("_onEditStart", e);
-  };
+  // const _onEditStart = e => {
+  //   console.log("_onEditStart", e);
+  // };
 
-  const _onEditStop = e => {
-    console.log("_onEditStop", e);
-  };
+  // const _onEditStop = e => {
+  //   console.log("_onEditStop", e);
+  // };
 
-  const _onDeleteStart = e => {
-    console.log("_onDeleteStart", e);
-  };
+  // const _onDeleteStart = e => {
+  //   console.log("_onDeleteStart", e);
+  // };
 
-  const _onDeleteStop = e => {
-    console.log("_onDeleteStop", e);
-  };
+  // const _onDeleteStop = e => {
+  //   console.log("_onDeleteStop", e);
+  // };
 
   const _onDrawStart = e => {
     console.log("_onDrawStart", e);
