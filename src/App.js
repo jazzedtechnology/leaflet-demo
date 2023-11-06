@@ -68,7 +68,7 @@ function App() {
               zIndex: 1000,
             }}
           >
-            <label htmlFor="basemapSelect"><i class="bi bi-globe-europe-africa"></i>:</label>
+            <label htmlFor="basemapSelect"><i className="bi bi-globe-europe-africa"></i>:</label>
             <select
               id="basemapSelect"
               onChange={handleBasemapChange}

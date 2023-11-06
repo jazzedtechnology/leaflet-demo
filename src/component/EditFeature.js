@@ -30,10 +30,20 @@ const EditFeature = () => {
     } else if (type === "polygon") {
       // Handle polygon specific actions
       console.log("_onCreated: polygon created", e);
+  
+      // Set the color of the polygon
+      layer.setStyle({
+        fillColor: "green", // Set the fill color
+        color: "red",       // Set the border color
+        weight: 2           // Set the border weight
+      });
+  
+      // Add the polygon to the map
+      layer.addTo(e.target);
+  
       console.log("Geojson", layer.toGeoJSON());
       console.log("Coords", layer.getLatLngs());
-      // Do whatever else you need to (save to a database, etc.)
-    } else {
+    }else {
       console.log("_onCreated: something else created:", type, e);
     }
   };
@@ -96,17 +106,7 @@ onEditVertex	function	hook to leaflet-draw's draw:editvertex event*/
         onCreated={_onCreated}
         onDeleted={_onDeleted}
         draw={{
-          polyline: {
-            icon: new L.DivIcon({
-              iconSize: new L.Point(8, 8),
-              className: "leaflet-div-icon leaflet-editing-icon"
-            }),
-            shapeOptions: {
-              guidelineDistance: 10,
-              color: "navy",
-              weight: 3
-            }
-          },
+          polyline: false,
           rectangle: false,
           circlemarker: false,
           circle: false,
